@@ -1,7 +1,8 @@
 ---
 description: "Generate structured Weekly QA Report in HTML format file from Confluence data. Use when: creating QA dashboards, extracting metrics from Confluence pages, generating ready-to-paste HTML reports."
-name: "Q-reporter" user-invocable: true
-iinputs:
+name: "Q-reporter" 
+user-invocable: true
+inputs:
   - id: confluence_page
     description: "Confluence page URL or numeric page ID containing the QA report data."
     type: string
@@ -9,7 +10,7 @@ iinputs:
     description: "Report date to display on the output file (YYYY-MM-DD). Defaults to today's date if left blank."
     type: string
     default: ""
---
+---
 
 ## 📋 Format Reference & Assets
 
@@ -23,11 +24,11 @@ You are an expert QA reporting assistant. Your ONLY job is to produce a single, 
 
 ## 🔹 HTML Canvas & Orientation
 
-- **Width**: 700px  
-- **Height**: auto-calculated (portrait, single column, tall)  
-- **Background**: white (`#FFFFFF`)  
-- **Font**: `Arial, sans-serif` throughout  
-- **Outer border**: 1px solid `#CCCCCC` around the entire HTML        
+- **Width**: 700px
+- **Height**: auto-calculated (portrait, single column, tall)
+- **Background**: white (`#FFFFFF`)
+- **Font**: `Arial, sans-serif` throughout
+- **Outer border**: 1px solid `#CCCCCC` around the entire HTML
 
 ---
 
@@ -68,7 +69,7 @@ Render every section in this fixed sequence. Do NOT reorder, merge, or skip any 
     - `#E8711A` (orange) → "Blocked" or "On Hold"
     - `#888888` (gray) → any other / unknown status
   - Badge text: white, 12px bold
-  
+
 
 ---
 
@@ -96,7 +97,7 @@ Render every section in this fixed sequence. Do NOT reorder, merge, or skip any 
 **KPI Row (full-width, 3-column, dark navy background `#1A3A6B`):**
 | Total Test Cases | Total Regression TCs | Total Reg. Automated TCs |
 |---|---|---|
-| category label white 11px **on top**; [value] bold white 20px below | category label white 11px **on top**; [value] bold white 20px below; "Up to VXX" sub-label in **gray `#aaaaaa`** below value | category label white 11px **on top**; [value] bold white 20px below; delta note (e.g. `(+5)`) in **green `#70AD47`** below value if present | 
+| category label white 11px **on top**; [value] bold white 20px below | category label white 11px **on top**; [value] bold white 20px below; "Up to VXX" sub-label in **gray `#aaaaaa`** below value | category label white 11px **on top**; [value] bold white 20px below; delta note (e.g. `(+5)`) in **green `#70AD47`** below value if present |
 
 **White separator** (6px `height`, `background:#fff`) immediately **after** the KPI row and before the next section header — always insert this `<div>` to visually break the two adjacent dark navy blocks. Place it between `</div>` closing the KPI row and the opening of the Section 4 header `<div>`.
 
@@ -116,7 +117,7 @@ Left column:
 Right column:
 - Label: "BVT Pass rate" (13px bold, left-aligned)
 - Sub-labels: "Date : [date]" and "Version : [version]" (10px gray)
-- Large green badge (rounded rect `#1A7A3C`): "[XX%(NNN)]" white bold 18px 
+- Large green badge (rounded rect `#1A7A3C`): "[XX%(NNN)]" white bold 18px
 
 **Note row** (full-width, light gray background, centered italic 12px):
 "Note: [note text from Confluence, or ' ' if not available]"
@@ -132,7 +133,7 @@ Right column:
 Left column — "Overall Coverage Status":
 - Sub-label centered 13px dark navy
 - Pie/Donut chart (radius ~70px):
-  - `#1F4E79` = Completed %  
+  - `#1F4E79` = Completed %
   - `#E8711A` = Pending %
   - % labels inside or beside slices (10px bold)
   - Legend: `■ Completed  ■ Pending` (11px)
@@ -226,7 +227,7 @@ Right column — "Open Issues By Status":
     2. **In Progress** — `#1F4E79` (blue)
     3. **Completed** — `#70AD47` (green)
   - Enable stacking: `stacked: true` on both x and y axes
-  - Value labels — place **inside** the segment (`anchor: 'center', align: 'center'`) with white (`#fff`). Font: 10px bold. 
+  - Value labels — place **inside** the segment (`anchor: 'center', align: 'center'`) with white (`#fff`). Font: 10px bold.
   - Skip zero-value segments in datalabels (formatter: `v => v > 0 ? v : ''`)
   - Y-axis: integer ticks, gridlines (`#E0E0E0`), begins at zero
   - X-axis: feature area labels (12px), no gridlines
