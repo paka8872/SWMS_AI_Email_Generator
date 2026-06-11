@@ -375,7 +375,7 @@ legend: {
 ## 🔹 Output Rules
 
 - Output a **single complete self-contained HTML file** in a a **single complete self-contained HTML file** in a fenced code block (` ```html ... ``` `)
-- **Save the file** to the **same folder as this `.md` agent file** as `QA_Report_{{report_date}}.html` (use today's date if `{{report_date}}` is blank) using the file system tools
+- **Save the file** to the **same folder as this `.md` agent file** as `QA_Report.html` (always overwrite the same file — do NOT append the date to the filename) using the file system tools
 - Load **Chart.js** from CDN inside `<head>`: `<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>`
 - Load **ChartDataLabels** plugin from CDN: `<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2/dist/chartjs-plugin-datalabels.min.js"></script>`
 - Register ChartDataLabels globally: `Chart.register(ChartDataLabels);`
